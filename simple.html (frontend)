@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+</head>
+<body>
+    <h1>AI-Driven E-commerce Chatbot</h1>
+    <div id="chatbox">
+        <div id="messages"></div>
+        <input type="text" id="userInput" placeholder="Ask a question...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var message = document.getElementById("userInput").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/chat", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    document.getElementById("messages").innerHTML += "<p><strong>You:</strong> " + message + "</p>";
+                    document.getElementById("messages").innerHTML += "<p><strong>Bot:</strong> " + json.response + "</p>";
+                }
+            };
+            xhr.send(JSON.stringify({"message": message}));
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+</body>
+</html>
