@@ -1,0 +1,24 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "How are you?", "Is anyone there?", "Good day"],
+      "responses": ["Hello!", "Hi there!", "Greetings! How can I assist you today?"]
+    },
+    {
+      "tag": "order_status",
+      "patterns": ["Can you check my order?", "Order status", "Where is my package?", "Tracking info"],
+      "responses": ["Sure! Please provide your order ID.", "Let me check the order status. What is your order ID?"]
+    },
+    {
+      "tag": "refund",
+      "patterns": ["How to get a refund?", "I want a refund", "Refund my order", "Return process"],
+      "responses": ["You can request a refund within 30 days of purchase. Please provide your order ID for more details."]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye", "Thanks"],
+      "responses": ["Goodbye!", "Talk to you soon!", "Have a great day!"]
+    }
+  ]
+}
